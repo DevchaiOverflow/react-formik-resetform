@@ -95,7 +95,7 @@ const FormAdd1 = ({ fiedData, genderMockdata, onClearFiedData, onRestoreForm }) 
                         name="gender"
                         label="เพศ"
                         component={AutoComplete}
-                        dataSource={[]}
+                        dataSource={genderMockdata}
                         customStyle={{
                           width: '100%'
                         }}
