@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/react-formik-resetform/precache-manifest.85e70fe714c7476eae313dd92c2155b1.js"
+  "/react-formik-resetform/precache-manifest.bedb59312a6cf3ea334772391b50fb30.js"
 );
 
 self.addEventListener('message', (event) => {
