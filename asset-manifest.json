@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/react-formik-resetform/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/react-formik-resetform/static/js/main.c2f5808d.chunk.js",
+    "main.js.map": "/react-formik-resetform/static/js/main.c2f5808d.chunk.js.map",
+    "runtime-main.js": "/react-formik-resetform/static/js/runtime-main.7bb7985b.js",
+    "runtime-main.js.map": "/react-formik-resetform/static/js/runtime-main.7bb7985b.js.map",
+    "static/js/2.378027fb.chunk.js": "/react-formik-resetform/static/js/2.378027fb.chunk.js",
+    "static/js/2.378027fb.chunk.js.map": "/react-formik-resetform/static/js/2.378027fb.chunk.js.map",
+    "index.html": "/react-formik-resetform/index.html",
+    "precache-manifest.85e70fe714c7476eae313dd92c2155b1.js": "/react-formik-resetform/precache-manifest.85e70fe714c7476eae313dd92c2155b1.js",
+    "service-worker.js": "/react-formik-resetform/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/react-formik-resetform/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.378027fb.chunk.js.LICENSE.txt": "/react-formik-resetform/static/js/2.378027fb.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7bb7985b.js",
+    "static/js/2.378027fb.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.c2f5808d.chunk.js"
+  ]
+}
