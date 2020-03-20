@@ -6,6 +6,8 @@ import { Grid } from '@material-ui/core'
 import FormAdd1 from './Components/FormAdd1'
 import FormAdd2 from './Components/FormAdd2'
 import FormAdd3 from './Components/FormAdd3'
+import FormControl from './Components/FormControl'
+import FormDatePicker from './Components/FormDatePicker'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -119,6 +121,14 @@ const App = props => {
             onClearFiedData={handleClearFiedData}
             onRestoreForm={handleRestoreForm}
           />
+        </Grid>
+
+        <Grid item xs={12} md={4}>
+          <FormControl genderMockdata={state.genderMock}/>
+        </Grid>
+
+        <Grid item xs={12} md={4}>
+          <FormDatePicker />
         </Grid>
 
       </Grid>

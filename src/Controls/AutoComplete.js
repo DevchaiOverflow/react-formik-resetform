@@ -1,21 +1,92 @@
-import React from 'react'
+import React, { useState } from 'react'
 // Import Materail ui
 import TextField from '@material-ui/core/TextField'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 
-const AutoComplete = ({ form, field, label, customStyle, dataSource = [] }) => {
+/***
+ * Guide line
+ * dev O00085 Somchai
+ * 
+ *  <Field
+      name="gender"
+      label="Gender"
+      component={Autocomplete}
+      dataSource={genderMockdata}
+      style={{ width: '100%' }}
+    />
+ * 
+ */
+
+
+const AutoComplete = (props) => {
+
+  const {
+    form,
+    field,
+    label,
+    style,
+    size = "small",
+    dataSource = [],
+    onChangeValue
+  } = props
+
+  const [state, setState] = useState({ error: false })
+
+  const handleChange = (e, value) => {
+    form.setFieldValue(field.name, value)
+    if (onChangeValue) onChangeValue(value)
+  }
+
+  const createRenderInput = (params) => {
+    return (
+      <TextField
+        error={state.error}
+        {...params}
+        label={label}
+        size={size}
+        variant="outlined"
+        InputLabelProps={{ shrink: true }}
+        placeholder="กรุณาระบุ..."
+      />
+    )
+  }
+
+  return (
+    <DefaultView
+      field={field}
+      style={style}
+      dataSource={dataSource}
+      onChange={handleChange}
+      onRenderInput={createRenderInput}
+    />
+  )
+}
+
+/**
+ * function default view
+ * dev O00085 Somchai
+ * @param {*} props 
+ */
+const DefaultView = (props) => {
+
+  const {
+    field,
+    style,
+    dataSource,
+    onChange,
+    onRenderInput
+  } = props
+
   return (
     <Autocomplete
       {...field}
-      style={customStyle}
+      style={style}
       id="combo-box-`${field.name}`"
       options={dataSource}
       getOptionLabel={option => option.NAME}
       noOptionsText={'ไม่พบข้อมูล'}
-      onChange={(e, value) => {
-        form.setFieldValue(field.name, value)
-      }}
-      renderInput={params => <TextField {...params} label={label} variant="outlined" placeholder="กรุณาระบุ..." />}
+      onChange={onChange}
+      renderInput={onRenderInput}
     />
   )
 }

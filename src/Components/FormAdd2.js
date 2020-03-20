@@ -7,10 +7,11 @@ import Grid from '@material-ui/core/Grid'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import Button from '@material-ui/core/Button'
 // Import Controls
-import TextInput from '../Controls/TextInput'
+import TextField from '../Controls/TextField'
 import AutoComplete from '../Controls/AutoComplete'
 // Import Constants
-import { initailFormAdd2 } from '../Constants/InitailFormik'
+// import { initailFormAdd2 } from '../Constants/InitailFormik'
+import useInitialFormik from '../Hooks/UseInitialFormik'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -33,6 +34,7 @@ const FormAdd1 = ({ fiedData, genderMockdata, onClearFiedData, onRestoreForm }) 
 
   const classes = useStyles()
   const formMikRef = useRef()
+  const initialFormHook = useInitialFormik()
 
   const handleClearForm = () => {
     // reset fieldData in state
@@ -52,7 +54,7 @@ const FormAdd1 = ({ fiedData, genderMockdata, onClearFiedData, onRestoreForm }) 
     <div className={classes.root}>
       <Formik
         enableReinitialize
-        initialValues={initailFormAdd2(fiedData)}
+        initialValues={initialFormHook.initailFormAdd2(fiedData)}
       >
         {
           (props) => {
@@ -72,8 +74,8 @@ const FormAdd1 = ({ fiedData, genderMockdata, onClearFiedData, onRestoreForm }) 
                       <Field
                         name="fullname"
                         label="ชื่อ-สกุล"
-                        component={TextInput}
-                        customStyle={{
+                        component={TextField}
+                        style={{
                           width: '100%'
                         }}
                       />
@@ -83,8 +85,8 @@ const FormAdd1 = ({ fiedData, genderMockdata, onClearFiedData, onRestoreForm }) 
                       <Field
                         name="tel"
                         label="เบอร์โทร"
-                        component={TextInput}
-                        customStyle={{
+                        component={TextField}
+                        style={{
                           width: '100%'
                         }}
                       />
@@ -96,7 +98,7 @@ const FormAdd1 = ({ fiedData, genderMockdata, onClearFiedData, onRestoreForm }) 
                         label="เพศ"
                         component={AutoComplete}
                         dataSource={genderMockdata}
-                        customStyle={{
+                        style={{
                           width: '100%'
                         }}
                       />
