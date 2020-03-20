@@ -93,7 +93,7 @@ const App = props => {
       <Grid container spacing={1}>
 
         <Grid item xs={12} container direction="row" justify="center" alignItems="center">
-          <h1>Formmik reset & restor (dynamic)</h1>
+          <h1>Formik reset & restore (dynamic)</h1>
         </Grid>
 
         <Grid item xs={12} md={4}>
