@@ -24,6 +24,8 @@ const UseInitialFormik = props => {
   const initialFormDatePicker = (fieldData) => {
     const empty = ''
     return {
+      fullname: (fieldData) ? fieldData.FULLNAME : empty,
+      email: (fieldData) ? fieldData.EMAIL : empty,
       date: (fieldData) ? fieldData.DATE : new Date(),
       time: (fieldData) ? fieldData.TIME : new Date(),
     }
