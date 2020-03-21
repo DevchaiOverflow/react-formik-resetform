@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { Field, Form, Formik, FormikProps } from 'formik'
 // Import Materail ui
 import { makeStyles } from '@material-ui/core/styles'
@@ -30,19 +30,25 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const FormAdd1 = ({ fiedData, genderMockdata, onClearFiedData, onRestoreForm }) => {
+const FormAdd = ({ fieldData, onClearFieldData, onRestoreForm }) => {
 
   const classes = useStyles()
   const formMikRef = useRef()
   const initialFormHook = useInitialFormik()
+  const [state, setState] = useState({
+    genderMock: [
+      { CODE: 0, NAME: "ผู้หญิง" },
+      { CODE: 1, NAME: "ผู้ชาย" },
+    ]
+  })
 
   const handleClearForm = () => {
     // reset fieldData in state
-    if (onClearFiedData) onClearFiedData('formAdd1')
+    if (onClearFieldData) onClearFieldData('formAdd')
   }
 
   const handleRestoreForm = () => {
-    if (onRestoreForm) onRestoreForm('formAdd1')
+    if (onRestoreForm) onRestoreForm('formAdd')
     formMikRef.current.resetForm()
   }
 
@@ -54,7 +60,7 @@ const FormAdd1 = ({ fiedData, genderMockdata, onClearFiedData, onRestoreForm }) 
     <div className={classes.root}>
       <Formik
         enableReinitialize
-        initialValues={initialFormHook.initailFormAdd1(fiedData)}
+        initialValues={initialFormHook.initialFormAdd(fieldData)}
       >
         {
           (props) => {
@@ -67,7 +73,7 @@ const FormAdd1 = ({ fiedData, genderMockdata, onClearFiedData, onRestoreForm }) 
                   <Grid container spacing={2} direction="row" justify="flex-start" alignItems="flex-start">
 
                     <Grid item xs={12}>
-                      <h2>Form Add 1</h2>
+                      <h2>Form Add</h2>
                     </Grid>
 
                     <Grid item xs={12}>
@@ -97,7 +103,8 @@ const FormAdd1 = ({ fiedData, genderMockdata, onClearFiedData, onRestoreForm }) 
                         name="gender"
                         label="เพศ"
                         component={AutoComplete}
-                        dataSource={genderMockdata}
+                        dataSource={state.genderMock}
+                        displayField="NAME"
                         style={{
                           width: '100%'
                         }}
@@ -120,4 +127,4 @@ const FormAdd1 = ({ fiedData, genderMockdata, onClearFiedData, onRestoreForm }) 
   )
 }
 
-export default FormAdd1
+export default FormAdd

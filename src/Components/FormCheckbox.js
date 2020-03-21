@@ -29,17 +29,17 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const FormControl = ({ fieldData, genderMockdata }) => {
+const FormControl = ({ fieldData }) => {
 
   const classes = useStyles()
-  const initialFormHook = useInitialFormik(fieldData)
+  const initialFormHook = useInitialFormik()
 
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
         <Formik
           enableReinitialize
-          initialValues={initialFormHook.example(fieldData)}
+          initialValues={initialFormHook.initialFormCheckbox(fieldData)}
         >
           {
             (props) => {
@@ -48,7 +48,7 @@ const FormControl = ({ fieldData, genderMockdata }) => {
                   <Grid container spacing={2} direction="row" justify="flex-start" alignItems="flex-start">
 
                     <Grid item xs={12}>
-                      <h2>Form Example</h2>
+                      <h2>Form Checkbox</h2>
                     </Grid>
 
                     <Grid item xs={12}>
@@ -62,11 +62,12 @@ const FormControl = ({ fieldData, genderMockdata }) => {
 
                     <Grid item xs={12}>
                       <Field
-                        name="gender"
-                        label="Gender"
-                        component={Autocomplete}
-                        dataSource={genderMockdata}
-                        style={{ width: '100%' }}
+                        name="email"
+                        label="อีเมล"
+                        component={TextField}
+                        style={{
+                          width: '100%'
+                        }}
                       />
                     </Grid>
 

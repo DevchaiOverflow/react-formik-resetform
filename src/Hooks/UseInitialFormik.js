@@ -1,17 +1,8 @@
 const UseInitialFormik = props => {
 
   // create initailForm (fieldData)
-  const example = (fieldData) => {
-    const empty = ''
-    return {
-      fullname: (fieldData) ? fieldData.FULLNAME : empty,
-      gender: (fieldData) ? fieldData.GENDER : empty,
-      status: (fieldData) ? fieldData.STATUS : true,
-      status2: (fieldData) ? fieldData.STATUS2 : false,
-    }
-  }
 
-  const initailFormAdd1 = (fieldData) => {
+  const initialFormAdd = (fieldData) => {
     const empty = ''
     return {
       fullname: (fieldData) ? fieldData.FULLNAME : empty,
@@ -20,25 +11,17 @@ const UseInitialFormik = props => {
     }
   }
 
-  const initailFormAdd2 = (fieldData) => {
+  const initialFormCheckbox = (fieldData) => {
     const empty = ''
     return {
       fullname: (fieldData) ? fieldData.FULLNAME : empty,
-      tel: (fieldData) ? fieldData.TEL : empty,
-      gender: (fieldData) ? fieldData.GENDER : empty
+      email: (fieldData) ? fieldData.EMAIL : empty,
+      status: (fieldData) ? fieldData.STATUS : true,
+      status2: (fieldData) ? fieldData.STATUS2 : false,
     }
   }
 
-  const initailFormAdd3 = (fieldData) => {
-    const empty = ''
-    return {
-      fullname: (fieldData) ? fieldData.FULLNAME : empty,
-      age: (fieldData) ? fieldData.AGE : empty,
-      gender: (fieldData) ? fieldData.GENDER : empty
-    }
-  }
-
-  const initailFormDatePicker = (fieldData) => {
+  const initialFormDatePicker = (fieldData) => {
     const empty = ''
     return {
       date: (fieldData) ? fieldData.DATE : new Date(),
@@ -46,12 +29,20 @@ const UseInitialFormik = props => {
     }
   }
 
+  const initialFormAdminPoly = (fieldData) => {
+    const empty = ''
+    return {
+      province: (fieldData) ? fieldData.PROVINCE : empty,
+      district: (fieldData) ? fieldData.DISTRICT : empty,
+      subDistrict: (fieldData) ? fieldData.SUBDISTRICT : empty,
+    }
+  }
+
   return {
-    example,
-    initailFormAdd1,
-    initailFormAdd2,
-    initailFormAdd3,
-    initailFormDatePicker
+    initialFormAdd,
+    initialFormCheckbox,
+    initialFormDatePicker,
+    initialFormAdminPoly
   }
 }
 

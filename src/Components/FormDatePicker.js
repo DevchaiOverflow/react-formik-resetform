@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button'
 // Import Hooks
 import useInitialFormik from '../Hooks/UseInitialFormik'
 // Import Control
+import TextField from '../Controls/TextField'
 import DatePick from '../Controls/DatePick'
 import TimePick from '../Controls/TimePick'
 
@@ -38,7 +39,7 @@ const FormDatePicker = ({ fieldData }) => {
       <Paper className={classes.paper}>
         <Formik
           enableReinitialize
-          initialValues={initialFormHook.initailFormDatePicker(fieldData)}
+          initialValues={initialFormHook.initialFormDatePicker(fieldData)}
         >
           {
             (props) => {
@@ -48,6 +49,28 @@ const FormDatePicker = ({ fieldData }) => {
 
                     <Grid item xs={12}>
                       <h2>Form Date Picker</h2>
+                    </Grid>
+
+                    <Grid item xs={12}>
+                      <Field
+                        name="fullname"
+                        label="ชื่อ-สกุล"
+                        component={TextField}
+                        style={{
+                          width: '100%'
+                        }}
+                      />
+                    </Grid>
+
+                    <Grid item xs={12}>
+                      <Field
+                        name="email"
+                        label="อีเมล"
+                        component={TextField}
+                        style={{
+                          width: '100%'
+                        }}
+                      />
                     </Grid>
 
                     <Grid item xs={6}>

@@ -12,6 +12,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete'
       label="Gender"
       component={Autocomplete}
       dataSource={genderMockdata}
+      displayField="NAME"
       style={{ width: '100%' }}
     />
  * 
@@ -27,6 +28,7 @@ const AutoComplete = (props) => {
     style,
     size = "small",
     dataSource = [],
+    displayField,
     onChangeValue
   } = props
 
@@ -57,6 +59,7 @@ const AutoComplete = (props) => {
       style={style}
       dataSource={dataSource}
       onChange={handleChange}
+      displayField={displayField}
       onRenderInput={createRenderInput}
     />
   )
@@ -74,7 +77,8 @@ const DefaultView = (props) => {
     style,
     dataSource,
     onChange,
-    onRenderInput
+    displayField,
+    onRenderInput,
   } = props
 
   return (
@@ -83,7 +87,7 @@ const DefaultView = (props) => {
       style={style}
       id="combo-box-`${field.name}`"
       options={dataSource}
-      getOptionLabel={option => option.NAME}
+      getOptionLabel={(option) => option[displayField]}
       noOptionsText={'ไม่พบข้อมูล'}
       onChange={onChange}
       renderInput={onRenderInput}
